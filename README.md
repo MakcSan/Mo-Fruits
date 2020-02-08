@@ -7,6 +7,15 @@ Im going to add Many Things later!
 
 Made With MCreator, i cant do anything without him :c
 
+**To-Do list**
+- add more fruits (Goal: 514Fruit)
+- Make Tree or plantable things for fruits
+- Resolve all bugs that caused by this mod
+- Add biomes/dimensions for specific fruits
+- other mod compaliblity(may need to code :(   )
+- RELEASE THE MOD
+
+
 Current Existing Items
 
 **Ihill Fruit**![Ihill Fruit, Based on Orange](https://cdn.discordapp.com/attachments/661716219438825473/675497638711394304/IhillFruite.png "Ihill Fruit, Based on Orange"): heals you :)
