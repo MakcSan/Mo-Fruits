@@ -78,6 +78,7 @@ public class MCreatorJugDebug extends Elementsmo_fruits.ModElement {
 				});
 				{
 					java.util.HashMap<String, Object> $_dependencies = new java.util.HashMap<>();
+					$_dependencies.put("entity", entity);
 					$_dependencies.put("world", world);
 					MCreatorJugDebugCommandExecuted.executeProcedure($_dependencies);
 				}
