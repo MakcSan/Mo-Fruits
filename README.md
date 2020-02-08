@@ -18,7 +18,7 @@ Made With MCreator, i cant do anything without him :c
 - RELEASE THE MOD
 
 
-Current Existing Items
+Current Existing Fruits
 
 **Ihill Fruit**![Ihill Fruit, Based on Orange](https://cdn.discordapp.com/attachments/661716219438825473/675497638711394304/IhillFruite.png "Ihill Fruit, Based on Orange"): heals you :)
 
