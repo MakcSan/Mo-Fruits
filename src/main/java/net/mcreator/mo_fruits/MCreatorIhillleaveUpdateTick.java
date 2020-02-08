@@ -31,8 +31,8 @@ public class MCreatorIhillleaveUpdateTick extends Elementsmo_fruits.ModElement {
 		int z = (int) dependencies.get("z");
 		World world = (World) dependencies.get("world");
 		double RandomTick = 0;
-		RandomTick = (double) (Math.random() * 2730);
-		if (((RandomTick) == 1)) {
+		RandomTick = (double) (Math.random() * 1000);
+		if (((RandomTick) <= 75)) {
 			world.setBlockState(new BlockPos((int) x, (int) y, (int) z), MCreatorIhillleavefruited.block.getDefaultState(), 3);
 		}
 	}
