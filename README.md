@@ -12,7 +12,7 @@ Made With MCreator, i cant do anything without him :c
 - Make Tree or plantable things for fruits
 - Resolve all bugs that caused by this mod
 - Add biomes/dimensions for specific fruits
-- other mod compaliblity(may need to code :(   )
+- other mod compaliblity(may need to code :c   )
 - RELEASE THE MOD
 
 
