@@ -1,0 +1,9 @@
+{
+  "parent": "mo_fruits:custom/fruitedleaveihill",
+  "textures": {
+    "all": "mo_fruits:blocks/ihill_leavefruited",
+    "particle": "mo_fruits:blocks/ihill_leavefruited",
+    "0": "mo_fruits:blocks/ihill_leavefruited",
+    "missing": "mo_fruits:blocks/ihill_leavefruited"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "mappings": {
+    "default": {
+      "map": {
+        "0": "ihill_leavefruited",
+        "missing": "ihill_leavefruited"
+      },
+      "name": "default"
+    }
+  }
+}

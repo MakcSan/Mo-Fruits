@@ -152,6 +152,14 @@
       "compiles": true,
       "locked_code": false,
       "ids": {}
+    },
+    {
+      "name": "Ihillleavefruited",
+      "type": "block",
+      "sortid": 8,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {}
     }
   ],
   "variable_elements": [
@@ -166,11 +174,13 @@
   "language_map": {
     "en_us": {
       "itemGroup.tabmorefruites": "Mo\u0027 Fruits",
+      "tile.ihillleavefruited.name": "Ihill leave fruited",
       "item.ihillfruit.name": "Ihill Fruite",
       "item.fruitofjudgement.name": "Fruit Of  judgement"
     },
     "ja_jp": {
       "itemGroup.tabmorefruites": "Mo\u0027 Fruits",
+      "tile.ihillleavefruited.name": "Ihillleavefruited",
       "item.ihillfruit.name": "ƒCƒqƒ‹‚ÌŽÀ",
       "item.fruitofjudgement.name": "Fruit Ofjudgement"
     }
