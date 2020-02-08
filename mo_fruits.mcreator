@@ -162,12 +162,48 @@
       "ids": {}
     },
     {
-      "name": "Ihilloot",
+      "name": "AUGH",
       "type": "loottable",
-      "sortid": 9,
+      "sortid": 10,
       "compiles": true,
       "locked_code": false,
       "ids": {}
+    },
+    {
+      "name": "Ihillleave",
+      "type": "block",
+      "sortid": 11,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {}
+    },
+    {
+      "name": "IhillleavefruitedOnBlockRightClicked",
+      "type": "procedure",
+      "sortid": 12,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "int"
+          },
+          {
+            "name": "y",
+            "type": "int"
+          },
+          {
+            "name": "z",
+            "type": "int"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
     }
   ],
   "variable_elements": [
@@ -178,13 +214,20 @@
       "value": "0"
     }
   ],
-  "sound_elements": [],
+  "sound_elements": [
+    {
+      "name": "pickfruit",
+      "file": "pickfruit",
+      "category": "block"
+    }
+  ],
   "language_map": {
     "en_us": {
       "item.mo_fruits.fruitofjudgement": "Fruit Of judgement",
       "itemGroup.tabmorefruites": "Mo\u0027 Fruits",
       "tile.ihillleavefruited.name": "Ihill leave fruited",
       "item.ihillfruit.name": "Ihill Fruite",
+      "block.mo_fruits.ihillleave": "Ihillleave",
       "item.fruitofjudgement.name": "Fruit Of  judgement",
       "item.mo_fruits.ihillfruit": "Ihill Fruite",
       "block.mo_fruits.ihillleavefruited": "Ihill leave fruited"
@@ -194,6 +237,7 @@
       "itemGroup.tabmorefruites": "Mo\u0027 Fruits",
       "tile.ihillleavefruited.name": "Ihillleavefruited",
       "item.ihillfruit.name": "ƒCƒqƒ‹‚ÌŽÀ",
+      "block.mo_fruits.ihillleave": "Ihillleave",
       "item.fruitofjudgement.name": "Fruit Ofjudgement",
       "item.mo_fruits.ihillfruit": "Ihill Fruite",
       "block.mo_fruits.ihillleavefruited": "Ihill leave fruited"

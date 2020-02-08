@@ -2,14 +2,14 @@
   "_fv": 5,
   "_type": "block",
   "definition": {
-    "texture": "ihill_leavefruited",
+    "texture": "ihill_leave",
     "textureTop": "",
     "textureLeft": "",
     "textureFront": "",
     "textureRight": "",
     "textureBack": "",
-    "renderType": 2,
-    "customModelName": "fruitedleaveihill:default",
+    "renderType": 11,
+    "customModelName": "Single texture",
     "rotationMode": 0,
     "hasTransparency": true,
     "transparencyType": "CUTOUT",
@@ -20,12 +20,10 @@
     "My": 1.0,
     "Mz": 1.0,
     "faceShape": "SOLID",
-    "name": "Ihill leave fruited",
-    "specialInfo": [
-      "i put so much effort to make this 3D for FIRST TIME please dont use this block normally"
-    ],
+    "name": "Ihillleave",
+    "specialInfo": [],
     "hardness": 0.2,
-    "resistance": 10.0,
+    "resistance": 2.0,
     "hasGravity": false,
     "creativeTab": {
       "value": "CUSTOM:MoreFruites"
@@ -40,13 +38,13 @@
     "enchantPowerBonus": 0.0,
     "plantsGrowOn": false,
     "canProvidePower": false,
-    "lightOpacity": 0,
+    "lightOpacity": 255,
     "material": {
       "value": "LEAVES"
     },
     "tickRate": 10,
     "isReplaceable": false,
-    "isFlammable": true,
+    "isFlammable": false,
     "colorOnMap": "DEFAULT",
     "creativePickItem": {
       "value": ""
@@ -72,9 +70,6 @@
     "inventoryDropWhenDestroyed": true,
     "inventoryComparatorPower": true,
     "inventoryOutSlotIDs": [],
-    "onRightClicked": {
-      "name": "IhillleavefruitedOnBlockRightClicked"
-    },
     "spawnWorldTypes": [],
     "restrictionBiomes": [],
     "blocksToReplace": [

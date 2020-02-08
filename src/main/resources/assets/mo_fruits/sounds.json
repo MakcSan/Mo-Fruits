@@ -1,1 +1,11 @@
-{}
+{
+  "pickfruit": {
+    "category": "block",
+    "sounds": [
+      {
+        "name": "mo_fruits:pickfruit",
+        "stream": false
+      }
+    ]
+  }
+}

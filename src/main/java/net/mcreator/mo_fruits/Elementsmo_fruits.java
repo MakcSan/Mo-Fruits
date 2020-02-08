@@ -19,6 +19,7 @@ import net.minecraftforge.common.MinecraftForge;
 
 import net.minecraft.world.storage.WorldSavedData;
 import net.minecraft.world.biome.Biome;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.tags.Tag;
 import net.minecraft.network.PacketBuffer;
 import net.minecraft.item.Item;
@@ -66,6 +67,8 @@ public class Elementsmo_fruits {
 	}
 
 	public void registerSounds(RegistryEvent.Register<net.minecraft.util.SoundEvent> event) {
+		ResourceLocation sound0 = new ResourceLocation("mo_fruits", "pickfruit");
+		event.getRegistry().register(new net.minecraft.util.SoundEvent(sound0).setRegistryName(sound0));
 	}
 
 	@SubscribeEvent
