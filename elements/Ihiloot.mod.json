@@ -19,9 +19,25 @@
             "weight": 1
           }
         ]
+      },
+      {
+        "minrolls": 1,
+        "maxrolls": 60,
+        "minbonusrolls": 1,
+        "maxbonusrolls": 1,
+        "hasbonusrolls": false,
+        "entries": [
+          {
+            "type": "item",
+            "item": {
+              "value": "CUSTOM:FruitOfjudgement"
+            },
+            "weight": 1
+          }
+        ]
       }
     ],
-    "name": "chests/abandoned_mineshaft",
-    "namespace": "minecraft"
+    "name": "ihiloot",
+    "namespace": "mod"
   }
 }

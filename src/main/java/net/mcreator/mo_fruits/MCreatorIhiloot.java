@@ -6,13 +6,13 @@ import net.minecraft.world.storage.loot.LootTableList;
 import net.minecraft.util.ResourceLocation;
 
 @Elementsmo_fruits.ModElement.Tag
-public class MCreatorIhilloot extends Elementsmo_fruits.ModElement {
-	public MCreatorIhilloot(Elementsmo_fruits instance) {
+public class MCreatorIhiloot extends Elementsmo_fruits.ModElement {
+	public MCreatorIhiloot(Elementsmo_fruits instance) {
 		super(instance, 9);
 	}
 
 	@Override
 	public void init(FMLInitializationEvent event) {
-		LootTableList.register(new ResourceLocation("minecraft", "chests/abandoned_mineshaft"));
+		LootTableList.register(new ResourceLocation("mo_fruits", "ihiloot"));
 	}
 }
