@@ -5,6 +5,8 @@
 **Current Build: *Alpha 0.0.1***
 Im going to add Many Things later!
 
+(Not recommended to play with this mod, its so buggy and risky!!! this git rep is for Work notes!)
+
 Made With MCreator, i cant do anything without him :c
 
 **To-Do list**
