@@ -9,7 +9,7 @@ Made With MCreator, i cant do anything without him :c
 
 Current Existing Items
 
-**Ihill Fruit**: heals you :)
+**Ihill Fruit**![Ihill Fruit, Based on Orange](https://cdn.discordapp.com/attachments/661716219438825473/675497638711394304/IhillFruite.png "Ihill Fruit, Based on Orange"): heals you :)
 
-**fruit of judgement**: simpy judge you. if you worth living, then you are forced to live, 
+**fruit of judgement**![Fruit Of judgement, YingYang things ](https://cdn.discordapp.com/attachments/661716219438825473/675497642415095817/DecisionlFruite.png "Fruit Of judgement, YingYang things "): simpy judge you. if you worth living, then you are forced to live, 
 if not, then go byebye (idk somehow buggy)
