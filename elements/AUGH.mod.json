@@ -23,26 +23,68 @@
             "item": {
               "value": "CUSTOM:FruitOfjudgement"
             },
-            "weight": 1
+            "weight": 3
           },
           {
             "type": "item",
             "item": {
               "value": "Items.NAME_TAG"
             },
+            "weight": 25
+          },
+          {
+            "type": "item",
+            "item": {
+              "value": "Items.IRON_PICKAXE"
+            },
+            "weight": 8
+          },
+          {
+            "type": "item",
+            "item": {
+              "value": "Blocks.RAIL"
+            },
             "weight": 30
           },
           {
             "type": "item",
             "item": {
-              "value": "Items.ENCHANTED_BOOK"
+              "value": "Blocks.RAIL"
+            },
+            "weight": 30
+          },
+          {
+            "type": "item",
+            "item": {
+              "value": "Items.DYE#4"
             },
             "weight": 10
           },
           {
             "type": "item",
             "item": {
-              "value": "Items.IRON_PICKAXE"
+              "value": "Blocks.TORCH"
+            },
+            "weight": 30
+          },
+          {
+            "type": "item",
+            "item": {
+              "value": "Blocks.TORCH"
+            },
+            "weight": 30
+          },
+          {
+            "type": "item",
+            "item": {
+              "value": "Blocks.TORCH"
+            },
+            "weight": 1
+          },
+          {
+            "type": "item",
+            "item": {
+              "value": "Blocks.TORCH"
             },
             "weight": 1
           }

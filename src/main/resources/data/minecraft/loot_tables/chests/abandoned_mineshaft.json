@@ -15,21 +15,51 @@
         {
           "type": "minecraft:item",
           "name": "mo_fruits:fruitofjudgement",
-          "weight": 1
+          "weight": 3
         },
         {
           "type": "minecraft:item",
           "name": "minecraft:name_tag",
-          "weight": 30
-        },
-        {
-          "type": "minecraft:item",
-          "name": "minecraft:enchanted_book",
-          "weight": 10
+          "weight": 25
         },
         {
           "type": "minecraft:item",
           "name": "minecraft:iron_pickaxe",
+          "weight": 8
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:rail",
+          "weight": 30
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:rail",
+          "weight": 30
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:lapis_lazuli",
+          "weight": 10
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:torch",
+          "weight": 30
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:torch",
+          "weight": 30
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:torch",
+          "weight": 1
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:torch",
           "weight": 1
         }
       ]

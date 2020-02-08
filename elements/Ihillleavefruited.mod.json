@@ -33,9 +33,9 @@
     "destroyTool": "Not specified",
     "affectedBySilkTouch": true,
     "customDrop": {
-      "value": ""
+      "value": "CUSTOM:IhillFruit"
     },
-    "dropAmount": 0,
+    "dropAmount": 1,
     "isBeaconBase": false,
     "enchantPowerBonus": 0.0,
     "plantsGrowOn": false,

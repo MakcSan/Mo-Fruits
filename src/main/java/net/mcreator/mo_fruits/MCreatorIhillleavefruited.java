@@ -71,7 +71,7 @@ public class MCreatorIhillleavefruited extends Elementsmo_fruits.ModElement {
 			List<ItemStack> dropsOriginal = super.getDrops(state, builder);
 			if (!dropsOriginal.isEmpty())
 				return dropsOriginal;
-			return Collections.singletonList(new ItemStack(this, 0));
+			return Collections.singletonList(new ItemStack(MCreatorIhillFruit.block, (int) (1)));
 		}
 
 		@Override
