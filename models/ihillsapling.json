@@ -1,0 +1,38 @@
+{
+	"credit": "Made with Blockbench",
+	"textures": {
+		"0": "more fruites/Ihill_sapling",
+		"particle": "more fruites/Ihill_sapling"
+	},
+	"elements": [
+		{
+			"name": "log",
+			"from": [7, -1, 7],
+			"to": [9, 16, 9],
+			"rotation": {"angle": 0, "axis": "y", "origin": [15, 7, 15]},
+			"faces": {
+				"north": {"uv": [0, 8, 2, 16], "texture": "#0"},
+				"east": {"uv": [0, 8, 2, 16], "texture": "#0"},
+				"south": {"uv": [0, 8, 2, 16], "texture": "#0"},
+				"west": {"uv": [0, 8, 2, 16], "texture": "#0"},
+				"up": {"uv": [8, 0, 16, 8], "texture": "#0"},
+				"down": {"uv": [8, 0, 16, 8], "texture": "#0"}
+			}
+		},
+		{
+			"name": "Leave",
+			"from": [3, 8, 3],
+			"to": [13, 17, 13],
+			"rotation": {"angle": 0, "axis": "y", "origin": [6.5, 8.5, 6]},
+			"faces": {
+				"north": {"uv": [0, 0, 8, 8], "texture": "#0"},
+				"east": {"uv": [0, 0, 8, 8], "texture": "#0"},
+				"south": {"uv": [0, 0, 8, 8], "texture": "#0"},
+				"west": {"uv": [0, 0, 8, 8], "texture": "#0"},
+				"up": {"uv": [0, 0, 8, 8], "texture": "#0"},
+				"down": {"uv": [0, 0, 8, 8], "texture": "#0"}
+			}
+		}
+	],
+	"display": {}
+}

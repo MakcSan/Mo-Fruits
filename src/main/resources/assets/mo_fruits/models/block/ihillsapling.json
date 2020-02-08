@@ -1,0 +1,8 @@
+{
+  "parent": "mo_fruits:custom/ihillsapling",
+  "textures": {
+    "all": "mo_fruits:blocks/ihill_sapling",
+    "particle": "mo_fruits:blocks/ihill_sapling",
+    "0": "mo_fruits:blocks/ihill_sapling"
+  }
+}

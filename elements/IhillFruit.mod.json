@@ -17,6 +17,9 @@
     "isAlwaysEdible": true,
     "animation": "eat",
     "hasGlow": false,
+    "onRightClicked": {
+      "name": "IhillFruitOnFoodRightClicked"
+    },
     "onEaten": {
       "name": "IhillFruiteFoodEaten"
     }

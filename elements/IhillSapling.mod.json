@@ -1,0 +1,36 @@
+{
+  "_fv": 5,
+  "_type": "plant",
+  "definition": {
+    "renderType": 2,
+    "texture": "ihill_sapling",
+    "customModelName": "ihillsapling:default",
+    "plantType": "normal",
+    "growapableSpawnType": "Crop",
+    "growapableMaxHeight": 3,
+    "name": "Ihill Sapling",
+    "creativeTab": {
+      "value": "DECORATIONS"
+    },
+    "hardness": 0.0,
+    "resistance": 0.0,
+    "luminance": 0.0,
+    "unbreakable": false,
+    "soundOnStep": {
+      "value": "WOOD"
+    },
+    "customDrop": {
+      "value": ""
+    },
+    "dropAmount": 0,
+    "isReplaceable": false,
+    "isFlammable": true,
+    "colorOnMap": "DEFAULT",
+    "creativePickItem": {
+      "value": "CUSTOM:IhillFruit"
+    },
+    "frequencyOnChunks": 20,
+    "spawnWorldTypes": [],
+    "restrictionBiomes": []
+  }
+}
