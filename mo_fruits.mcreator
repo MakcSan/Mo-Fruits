@@ -41,7 +41,16 @@
       "locked_code": false,
       "ids": {},
       "metadata": {
-        "dependencies": []
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
       }
     },
     {
@@ -148,6 +157,14 @@
       "name": "Ihillleavefruited",
       "type": "block",
       "sortid": 8,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {}
+    },
+    {
+      "name": "Ihilloot",
+      "type": "loottable",
+      "sortid": 9,
       "compiles": true,
       "locked_code": false,
       "ids": {}

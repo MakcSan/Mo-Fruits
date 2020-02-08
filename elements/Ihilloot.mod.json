@@ -1,0 +1,55 @@
+{
+  "_fv": 5,
+  "_type": "loottable",
+  "definition": {
+    "type": "Generic",
+    "pools": [
+      {
+        "minrolls": 0,
+        "maxrolls": 2,
+        "minbonusrolls": 1,
+        "maxbonusrolls": 1,
+        "hasbonusrolls": false,
+        "entries": [
+          {
+            "type": "item",
+            "item": {
+              "value": "CUSTOM:IhillFruit"
+            },
+            "weight": 10
+          },
+          {
+            "type": "item",
+            "item": {
+              "value": "CUSTOM:FruitOfjudgement"
+            },
+            "weight": 5
+          },
+          {
+            "type": "item",
+            "item": {
+              "value": "Blocks.RAIL"
+            },
+            "weight": 20
+          },
+          {
+            "type": "item",
+            "item": {
+              "value": "Items.REDSTONE"
+            },
+            "weight": 10
+          },
+          {
+            "type": "item",
+            "item": {
+              "value": "Blocks.TORCH"
+            },
+            "weight": 5
+          }
+        ]
+      }
+    ],
+    "name": "chests/abandoned_mineshaft",
+    "namespace": "minecraft"
+  }
+}

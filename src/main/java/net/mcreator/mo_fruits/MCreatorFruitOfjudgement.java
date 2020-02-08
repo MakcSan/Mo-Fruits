@@ -56,6 +56,8 @@ public class MCreatorFruitOfjudgement extends Elementsmo_fruits.ModElement {
 			int z = (int) entity.posZ;
 			{
 				java.util.HashMap<String, Object> $_dependencies = new java.util.HashMap<>();
+				$_dependencies.put("entity", entity);
+				$_dependencies.put("world", world);
 				MCreatorFruitOfjudgementFoodEaten.executeProcedure($_dependencies);
 			}
 			return retval;
