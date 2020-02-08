@@ -1,7 +1,7 @@
 {
   "variants": {
-    "normal": {
-      "model": "mo_fruits:ihillleavefruited"
+    "": {
+      "model": "mo_fruits:block/ihillleavefruited"
     }
   }
 }

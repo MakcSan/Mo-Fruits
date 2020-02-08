@@ -41,16 +41,7 @@
       "locked_code": false,
       "ids": {},
       "metadata": {
-        "dependencies": [
-          {
-            "name": "entity",
-            "type": "entity"
-          },
-          {
-            "name": "world",
-            "type": "world"
-          }
-        ]
+        "dependencies": []
       }
     },
     {
@@ -160,14 +151,6 @@
       "compiles": true,
       "locked_code": false,
       "ids": {}
-    },
-    {
-      "name": "Ihiloot",
-      "type": "loottable",
-      "sortid": 9,
-      "compiles": true,
-      "locked_code": false,
-      "ids": {}
     }
   ],
   "variable_elements": [
@@ -181,23 +164,30 @@
   "sound_elements": [],
   "language_map": {
     "en_us": {
+      "item.mo_fruits.fruitofjudgement": "Fruit Of judgement",
       "itemGroup.tabmorefruites": "Mo\u0027 Fruits",
       "tile.ihillleavefruited.name": "Ihill leave fruited",
       "item.ihillfruit.name": "Ihill Fruite",
-      "item.fruitofjudgement.name": "Fruit Of  judgement"
+      "item.fruitofjudgement.name": "Fruit Of  judgement",
+      "item.mo_fruits.ihillfruit": "Ihill Fruite",
+      "block.mo_fruits.ihillleavefruited": "Ihill leave fruited"
     },
     "ja_jp": {
+      "item.mo_fruits.fruitofjudgement": "Fruit Of  judgement",
       "itemGroup.tabmorefruites": "Mo\u0027 Fruits",
       "tile.ihillleavefruited.name": "Ihillleavefruited",
       "item.ihillfruit.name": "ƒCƒqƒ‹‚ÌŽÀ",
-      "item.fruitofjudgement.name": "Fruit Ofjudgement"
+      "item.fruitofjudgement.name": "Fruit Ofjudgement",
+      "item.mo_fruits.ihillfruit": "Ihill Fruite",
+      "block.mo_fruits.ihillleavefruited": "Ihill leave fruited"
     }
   },
   "workspaceSettings": {
     "modid": "mo_fruits",
     "modName": "Mo\u0027 Fruits",
-    "version": "1.0.0",
-    "author": "youar",
+    "version": "0.0.1",
+    "description": "more way to explore, fight, farm!",
+    "author": "Makc",
     "websiteURL": "https://mcreator.net",
     "disableForgeVersionCheck": true,
     "serverSideOnly": false,
@@ -205,7 +195,7 @@
     "dependencies": [],
     "dependants": [],
     "mcreatorDependencies": [],
-    "currentGenerator": "1.12.2",
+    "currentGenerator": "1.14.4",
     "usesProFeatures": false,
     "lockBaseModFiles": false
   },

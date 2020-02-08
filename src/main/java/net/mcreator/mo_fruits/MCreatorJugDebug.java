@@ -1,19 +1,18 @@
 package net.mcreator.mo_fruits;
 
-import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
+import net.minecraftforge.fml.event.server.FMLServerStartingEvent;
 
 import net.minecraft.world.World;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.server.MinecraftServer;
 import net.minecraft.entity.Entity;
-import net.minecraft.command.ICommandSender;
-import net.minecraft.command.ICommand;
-import net.minecraft.command.CommandHandler;
+import net.minecraft.command.Commands;
+import net.minecraft.command.CommandSource;
 
-import java.util.List;
 import java.util.HashMap;
 import java.util.Arrays;
-import java.util.ArrayList;
+
+import com.mojang.brigadier.context.CommandContext;
+import com.mojang.brigadier.builder.LiteralArgumentBuilder;
+import com.mojang.brigadier.arguments.StringArgumentType;
 
 @Elementsmo_fruits.ModElement.Tag
 public class MCreatorJugDebug extends Elementsmo_fruits.ModElement {
@@ -23,66 +22,35 @@ public class MCreatorJugDebug extends Elementsmo_fruits.ModElement {
 
 	@Override
 	public void serverLoad(FMLServerStartingEvent event) {
-		event.registerServerCommand(new CommandHandler());
+		event.getCommandDispatcher().register(customCommand());
 	}
 
-	public static class CommandHandler implements ICommand {
-		@Override
-		public int compareTo(ICommand c) {
-			return getName().compareTo(c.getName());
-		}
+	private static LiteralArgumentBuilder<CommandSource> customCommand() {
+		return LiteralArgumentBuilder.<CommandSource> literal("jugdebug")
+				.then(Commands.argument("arguments", StringArgumentType.greedyString()).executes(MCreatorJugDebug::execute))
+				.executes(MCreatorJugDebug::execute);
+	}
 
-		@Override
-		public boolean checkPermission(MinecraftServer server, ICommandSender var1) {
-			return true;
-		}
-
-		@Override
-		public List getAliases() {
-			return new ArrayList();
-		}
-
-		@Override
-		public List getTabCompletions(MinecraftServer server, ICommandSender sender, String[] args, BlockPos pos) {
-			return new ArrayList();
-		}
-
-		@Override
-		public boolean isUsernameIndex(String[] string, int index) {
-			return true;
-		}
-
-		@Override
-		public String getName() {
-			return "jugdebug";
-		}
-
-		@Override
-		public String getUsage(ICommandSender var1) {
-			return "/jugdebug [<arguments>]";
-		}
-
-		@Override
-		public void execute(MinecraftServer server, ICommandSender sender, String[] cmd) {
-			int x = sender.getPosition().getX();
-			int y = sender.getPosition().getY();
-			int z = sender.getPosition().getZ();
-			Entity entity = sender.getCommandSenderEntity();
-			if (entity != null) {
-				World world = entity.world;
-				HashMap<String, String> cmdparams = new HashMap<>();
-				int[] index = {0};
-				Arrays.stream(cmd).forEach(param -> {
-					cmdparams.put(Integer.toString(index[0]), param);
-					index[0]++;
-				});
-				{
-					java.util.HashMap<String, Object> $_dependencies = new java.util.HashMap<>();
-					$_dependencies.put("entity", entity);
-					$_dependencies.put("world", world);
-					MCreatorJugDebugCommandExecuted.executeProcedure($_dependencies);
-				}
+	private static int execute(CommandContext<CommandSource> ctx) {
+		Entity entity = ctx.getSource().getEntity();
+		if (entity != null) {
+			int x = entity.getPosition().getX();
+			int y = entity.getPosition().getY();
+			int z = entity.getPosition().getZ();
+			World world = entity.world;
+			HashMap<String, String> cmdparams = new HashMap<>();
+			int[] index = {0};
+			Arrays.stream(ctx.getInput().split("\\s+")).forEach(param -> {
+				cmdparams.put(Integer.toString(index[0]), param);
+				index[0]++;
+			});
+			{
+				java.util.HashMap<String, Object> $_dependencies = new java.util.HashMap<>();
+				$_dependencies.put("entity", entity);
+				$_dependencies.put("world", world);
+				MCreatorJugDebugCommandExecuted.executeProcedure($_dependencies);
 			}
 		}
+		return 0;
 	}
 }

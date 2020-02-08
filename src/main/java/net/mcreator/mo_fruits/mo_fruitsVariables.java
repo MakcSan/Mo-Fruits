@@ -1,17 +1,59 @@
 package net.mcreator.mo_fruits;
 
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
-import net.minecraftforge.fml.common.network.simpleimpl.IMessageHandler;
-import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
-import net.minecraftforge.fml.common.network.ByteBufUtils;
+import net.minecraftforge.fml.network.PacketDistributor;
+import net.minecraftforge.fml.network.NetworkEvent;
+import net.minecraftforge.fml.LogicalSide;
 
 import net.minecraft.world.storage.WorldSavedData;
+import net.minecraft.world.server.ServerWorld;
+import net.minecraft.world.dimension.DimensionType;
 import net.minecraft.world.World;
-import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.network.PacketBuffer;
+import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.client.Minecraft;
 
+import java.util.function.Supplier;
+
 public class mo_fruitsVariables {
+	public static class WorldVariables extends WorldSavedData {
+		public static final String DATA_NAME = "mo_fruits_worldvars";
+
+		public WorldVariables() {
+			super(DATA_NAME);
+		}
+
+		public WorldVariables(String s) {
+			super(s);
+		}
+
+		@Override
+		public void read(CompoundNBT nbt) {
+		}
+
+		@Override
+		public CompoundNBT write(CompoundNBT nbt) {
+			return nbt;
+		}
+
+		public void syncData(World world) {
+			this.markDirty();
+			if (world.isRemote) {
+				mo_fruits.PACKET_HANDLER.sendToServer(new WorldSavedDataSyncMessage(1, this));
+			} else {
+				mo_fruits.PACKET_HANDLER.send(PacketDistributor.DIMENSION.with(world.dimension::getType), new WorldSavedDataSyncMessage(1, this));
+			}
+		}
+		static WorldVariables clientSide = new WorldVariables();
+
+		public static WorldVariables get(World world) {
+			if (world instanceof ServerWorld) {
+				return ((ServerWorld) world).getSavedData().getOrCreate(WorldVariables::new, DATA_NAME);
+			} else {
+				return clientSide;
+			}
+		}
+	}
+
 	public static class MapVariables extends WorldSavedData {
 		public static final String DATA_NAME = "mo_fruits_mapvars";
 		public double Howmanykilled = 0;
@@ -25,13 +67,13 @@ public class mo_fruitsVariables {
 		}
 
 		@Override
-		public void readFromNBT(NBTTagCompound nbt) {
+		public void read(CompoundNBT nbt) {
 			Howmanykilled = nbt.getDouble("Howmanykilled");
 		}
 
 		@Override
-		public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
-			nbt.setDouble("Howmanykilled", Howmanykilled);
+		public CompoundNBT write(CompoundNBT nbt) {
+			nbt.putDouble("Howmanykilled", Howmanykilled);
 			return nbt;
 		}
 
@@ -40,90 +82,31 @@ public class mo_fruitsVariables {
 			if (world.isRemote) {
 				mo_fruits.PACKET_HANDLER.sendToServer(new WorldSavedDataSyncMessage(0, this));
 			} else {
-				mo_fruits.PACKET_HANDLER.sendToAll(new WorldSavedDataSyncMessage(0, this));
+				mo_fruits.PACKET_HANDLER.send(PacketDistributor.ALL.noArg(), new WorldSavedDataSyncMessage(0, this));
 			}
 		}
+		static MapVariables clientSide = new MapVariables();
 
 		public static MapVariables get(World world) {
-			MapVariables instance = (MapVariables) world.getMapStorage().getOrLoadData(MapVariables.class, DATA_NAME);
-			if (instance == null) {
-				instance = new MapVariables();
-				world.getMapStorage().setData(DATA_NAME, instance);
-			}
-			return instance;
-		}
-	}
-
-	public static class WorldVariables extends WorldSavedData {
-		public static final String DATA_NAME = "mo_fruits_worldvars";
-
-		public WorldVariables() {
-			super(DATA_NAME);
-		}
-
-		public WorldVariables(String s) {
-			super(s);
-		}
-
-		@Override
-		public void readFromNBT(NBTTagCompound nbt) {
-		}
-
-		@Override
-		public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
-			return nbt;
-		}
-
-		public void syncData(World world) {
-			this.markDirty();
-			if (world.isRemote) {
-				mo_fruits.PACKET_HANDLER.sendToServer(new WorldSavedDataSyncMessage(1, this));
+			if (world instanceof ServerWorld) {
+				return world.getServer().getWorld(DimensionType.OVERWORLD).getSavedData().getOrCreate(MapVariables::new, DATA_NAME);
 			} else {
-				mo_fruits.PACKET_HANDLER.sendToDimension(new WorldSavedDataSyncMessage(1, this), world.provider.getDimension());
-			}
-		}
-
-		public static WorldVariables get(World world) {
-			WorldVariables instance = (WorldVariables) world.getPerWorldStorage().getOrLoadData(WorldVariables.class, DATA_NAME);
-			if (instance == null) {
-				instance = new WorldVariables();
-				world.getPerWorldStorage().setData(DATA_NAME, instance);
-			}
-			return instance;
-		}
-	}
-
-	public static class WorldSavedDataSyncMessageHandler implements IMessageHandler<WorldSavedDataSyncMessage, IMessage> {
-		@Override
-		public IMessage onMessage(WorldSavedDataSyncMessage message, MessageContext context) {
-			if (context.side == Side.SERVER)
-				context.getServerHandler().player.getServerWorld().addScheduledTask(
-						() -> syncData(message, context, context.getServerHandler().player.world));
-			else
-				Minecraft.getMinecraft().addScheduledTask(() -> syncData(message, context, Minecraft.getMinecraft().player.world));
-			return null;
-		}
-
-		private void syncData(WorldSavedDataSyncMessage message, MessageContext context, World world) {
-			if (context.side == Side.SERVER) {
-				if (message.type == 0)
-					mo_fruits.PACKET_HANDLER.sendToAll(message);
-				else
-					mo_fruits.PACKET_HANDLER.sendToDimension(message, world.provider.getDimension());
-			}
-			if (message.type == 0) {
-				world.getMapStorage().setData(MapVariables.DATA_NAME, message.data);
-			} else {
-				world.getPerWorldStorage().setData(WorldVariables.DATA_NAME, message.data);
+				return clientSide;
 			}
 		}
 	}
 
-	public static class WorldSavedDataSyncMessage implements IMessage {
+	public static class WorldSavedDataSyncMessage {
 		public int type;
 		public WorldSavedData data;
 
-		public WorldSavedDataSyncMessage() {
+		public WorldSavedDataSyncMessage(PacketBuffer buffer) {
+			this.type = buffer.readInt();
+			if (this.type == 0)
+				this.data = new MapVariables();
+			else
+				this.data = new WorldVariables();
+			this.data.read(buffer.readCompoundTag());
 		}
 
 		public WorldSavedDataSyncMessage(int type, WorldSavedData data) {
@@ -131,20 +114,39 @@ public class mo_fruitsVariables {
 			this.data = data;
 		}
 
-		@Override
-		public void toBytes(io.netty.buffer.ByteBuf buf) {
-			buf.writeInt(this.type);
-			ByteBufUtils.writeTag(buf, this.data.writeToNBT(new NBTTagCompound()));
+		public static void buffer(WorldSavedDataSyncMessage message, PacketBuffer buffer) {
+			buffer.writeInt(message.type);
+			buffer.writeCompoundTag(message.data.write(new CompoundNBT()));
 		}
 
-		@Override
-		public void fromBytes(io.netty.buffer.ByteBuf buf) {
-			this.type = buf.readInt();
-			if (this.type == 0)
-				this.data = new MapVariables();
-			else
-				this.data = new WorldVariables();
-			this.data.readFromNBT(ByteBufUtils.readTag(buf));
+		public static void handler(WorldSavedDataSyncMessage message, Supplier<NetworkEvent.Context> contextSupplier) {
+			NetworkEvent.Context context = contextSupplier.get();
+			context.enqueueWork(() -> {
+				if (context.getDirection().getReceptionSide().isServer())
+					syncData(message, context.getDirection().getReceptionSide(), context.getSender().world);
+				else
+					syncData(message, context.getDirection().getReceptionSide(), Minecraft.getInstance().player.world);
+			});
+			context.setPacketHandled(true);
+		}
+
+		private static void syncData(WorldSavedDataSyncMessage message, LogicalSide side, World world) {
+			if (side.isServer()) {
+				message.data.markDirty();
+				if (message.type == 0) {
+					mo_fruits.PACKET_HANDLER.send(PacketDistributor.ALL.noArg(), message);
+					world.getServer().getWorld(DimensionType.OVERWORLD).getSavedData().set(message.data);
+				} else {
+					mo_fruits.PACKET_HANDLER.send(PacketDistributor.DIMENSION.with(world.dimension::getType), message);
+					((ServerWorld) world).getSavedData().set(message.data);
+				}
+			} else {
+				if (message.type == 0) {
+					MapVariables.clientSide = (MapVariables) message.data;
+				} else {
+					WorldVariables.clientSide = (WorldVariables) message.data;
+				}
+			}
 		}
 	}
 }

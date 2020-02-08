@@ -1,6 +1,6 @@
 package net.mcreator.mo_fruits;
 
-import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.Entity;
 
 @Elementsmo_fruits.ModElement.Tag
@@ -15,8 +15,7 @@ public class MCreatorIhillFruiteFoodEaten extends Elementsmo_fruits.ModElement {
 			return;
 		}
 		Entity entity = (Entity) dependencies.get("entity");
-		if (entity instanceof EntityLivingBase)
-			((EntityLivingBase) entity)
-					.setHealth((float) (((entity instanceof EntityLivingBase) ? ((EntityLivingBase) entity).getHealth() : -1) + 6));
+		if (entity instanceof LivingEntity)
+			((LivingEntity) entity).setHealth((float) (((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHealth() : -1) + 6));
 	}
 }

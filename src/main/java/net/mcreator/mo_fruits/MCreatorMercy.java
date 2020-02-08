@@ -1,7 +1,7 @@
 package net.mcreator.mo_fruits;
 
-import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.common.MinecraftForge;
 
 import net.minecraft.world.World;
@@ -11,6 +11,7 @@ import net.minecraft.entity.Entity;
 public class MCreatorMercy extends Elementsmo_fruits.ModElement {
 	public MCreatorMercy(Elementsmo_fruits instance) {
 		super(instance, 5);
+		MinecraftForge.EVENT_BUS.register(this);
 	}
 
 	public static void executeProcedure(java.util.HashMap<String, Object> dependencies) {
@@ -24,8 +25,8 @@ public class MCreatorMercy extends Elementsmo_fruits.ModElement {
 	}
 
 	@SubscribeEvent
-	public void onPlayerRespawned(net.minecraftforge.fml.common.gameevent.PlayerEvent.PlayerRespawnEvent event) {
-		Entity entity = event.player;
+	public void onPlayerRespawned(PlayerEvent.PlayerRespawnEvent event) {
+		Entity entity = event.getPlayer();
 		java.util.HashMap<String, Object> dependencies = new java.util.HashMap<>();
 		dependencies.put("x", (int) entity.posX);
 		dependencies.put("y", (int) entity.posY);
@@ -35,10 +36,5 @@ public class MCreatorMercy extends Elementsmo_fruits.ModElement {
 		dependencies.put("endconquered", event.isEndConquered());
 		dependencies.put("event", event);
 		this.executeProcedure(dependencies);
-	}
-
-	@Override
-	public void preInit(FMLPreInitializationEvent event) {
-		MinecraftForge.EVENT_BUS.register(this);
 	}
 }

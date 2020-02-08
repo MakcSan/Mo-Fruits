@@ -1,22 +1,17 @@
 package net.mcreator.mo_fruits;
 
-import net.minecraftforge.fml.relauncher.SideOnly;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.common.registry.GameRegistry;
-import net.minecraftforge.client.model.ModelLoader;
-import net.minecraftforge.client.event.ModelRegistryEvent;
+import net.minecraftforge.registries.ObjectHolder;
 
 import net.minecraft.world.World;
+import net.minecraft.item.UseAction;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.ItemFood;
 import net.minecraft.item.Item;
-import net.minecraft.item.EnumAction;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.client.renderer.block.model.ModelResourceLocation;
+import net.minecraft.item.Food;
+import net.minecraft.entity.LivingEntity;
 
 @Elementsmo_fruits.ModElement.Tag
 public class MCreatorIhillFruit extends Elementsmo_fruits.ModElement {
-	@GameRegistry.ObjectHolder("mo_fruits:ihillfruit")
+	@ObjectHolder("mo_fruits:ihillfruit")
 	public static final Item block = null;
 
 	public MCreatorIhillFruit(Elementsmo_fruits instance) {
@@ -25,33 +20,24 @@ public class MCreatorIhillFruit extends Elementsmo_fruits.ModElement {
 
 	@Override
 	public void initElements() {
-		elements.items.add(() -> new ItemFoodCustom());
+		elements.items.add(() -> new FoodItemCustom());
 	}
 
-	@SideOnly(Side.CLIENT)
-	@Override
-	public void registerModels(ModelRegistryEvent event) {
-		ModelLoader.setCustomModelResourceLocation(block, 0, new ModelResourceLocation("mo_fruits:ihillfruit", "inventory"));
-	}
-
-	public static class ItemFoodCustom extends ItemFood {
-		public ItemFoodCustom() {
-			super(1, 0.7f, true);
-			setUnlocalizedName("ihillfruit");
+	public static class FoodItemCustom extends Item {
+		public FoodItemCustom() {
+			super(new Item.Properties().group(MCreatorMoreFruites.tab).maxStackSize(64)
+					.food((new Food.Builder()).hunger(1).saturation(0.7f).setAlwaysEdible().meat().build()));
 			setRegistryName("ihillfruit");
-			setAlwaysEdible();
-			setCreativeTab(MCreatorMoreFruites.tab);
-			setMaxStackSize(64);
 		}
 
 		@Override
-		public EnumAction getItemUseAction(ItemStack par1ItemStack) {
-			return EnumAction.EAT;
+		public UseAction getUseAction(ItemStack par1ItemStack) {
+			return UseAction.EAT;
 		}
 
 		@Override
-		protected void onFoodEaten(ItemStack itemStack, World world, EntityPlayer entity) {
-			super.onFoodEaten(itemStack, world, entity);
+		public ItemStack onItemUseFinish(ItemStack itemStack, World world, LivingEntity entity) {
+			ItemStack retval = super.onItemUseFinish(itemStack, world, entity);
 			int x = (int) entity.posX;
 			int y = (int) entity.posY;
 			int z = (int) entity.posZ;
@@ -60,6 +46,7 @@ public class MCreatorIhillFruit extends Elementsmo_fruits.ModElement {
 				$_dependencies.put("entity", entity);
 				MCreatorIhillFruiteFoodEaten.executeProcedure($_dependencies);
 			}
+			return retval;
 		}
 	}
 }
